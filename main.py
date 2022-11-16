@@ -39,7 +39,7 @@ class ToTop:
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
-        self.setWindowIcon(QtGui.QIcon('plum.ico'))
+        self.setWindowIcon(QtGui.QIcon('img/plum.ico'))
         self.setWindowFlag(Qt.FramelessWindowHint)
         self.setWindowFlag(Qt.WindowStaysOnTopHint)
         self.ui = Ui_MainWindow()
@@ -71,7 +71,7 @@ class MainWindow(QMainWindow):
 
     def tray_menu(self):
         self.menu = QMenu()
-        self.tray = QSystemTrayIcon(QIcon("tray.svg"))
+        self.tray = QSystemTrayIcon(QIcon("img/tray.svg"))
         self.action_exit = QAction("Exit")
         self.action_exit.triggered.connect(app.exit)
         self.menu.addAction(self.action_exit)
@@ -115,7 +115,7 @@ class MainWindow(QMainWindow):
                     self.menu_action = QAction(side, self)
                     self.menu_action.setObjectName(side)
                     self.menu_action.setData(item)
-                    self.menu_action.setIcon(QIcon(f'{side}.png'))
+                    self.menu_action.setIcon(QIcon(f'img/{side}.png'))
                     self.menu_action.triggered.connect(self.action_clicked)
                     self.con_menu.addAction(self.menu_action)
                 self.con_menu.exec_(event.globalPos())
